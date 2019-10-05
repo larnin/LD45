@@ -385,13 +385,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_deadZone: 0.1
-  m_maxForwardSpeed: 5
-  m_maxBackwardSpeed: 3
+  m_maxForwardSpeed: 3
+  m_maxBackwardSpeed: 2
   m_acceleration: 5
   m_passiveDeceleration: 1
-  m_maneuverability: 10
   m_frontWheelRotation: -0.7853975
   m_wheelDistance: 0.5
+  m_maxRotSpeedBeforeDrift: 0.1
+  m_driftDeceleration: 1
+  m_driftLostMaxSpeed: 1
+  m_driftLostSpeed: 1
 --- !u!50 &1575262535
 Rigidbody2D:
   serializedVersion: 4
