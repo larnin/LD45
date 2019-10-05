@@ -17,7 +17,6 @@ public class CarControler : MonoBehaviour
     [SerializeField] float m_maxRotSpeedBeforeDrift = 1; // rotation angle in degre * speed
     [SerializeField] float m_driftDeceleration = 1;
     [SerializeField] float m_driftLostMaxSpeed = 1;
-    [SerializeField] float m_driftLostSpeed = 1;
 
     float m_forwardInput = 0;
     float m_rotationInput = 0;
@@ -75,9 +74,9 @@ public class CarControler : MonoBehaviour
         if (accelerate)
         {
             
-            if (Mathf.Abs(m_speed) < maxSpeed)
+            if (Mathf.Abs(m_speed) < maxSpeed || (m_forwardInput > 0 != m_speed > 0))
             {
-                float speed = m_speed + m_acceleration * m_forwardInput * Time.deltaTime;
+                float speed = m_speed + m_acceleration / (m_speed + 1) * m_forwardInput * Time.deltaTime;
                 if (speed > m_maxForwardSpeed)
                     speed = m_maxForwardSpeed;
                 if (speed < -m_maxBackwardSpeed)
@@ -98,7 +97,7 @@ public class CarControler : MonoBehaviour
         }
         if (Mathf.Abs(m_speed) > m_maxForwardSpeed)
         {
-            float speed = m_speed - Mathf.Sign(m_speed) * m_driftDeceleration * Time.deltaTime * m_driftLostSpeed * driftPower;
+            float speed = m_speed - Mathf.Sign(m_speed) * m_driftDeceleration * Time.deltaTime * driftPower;
             if ((speed < 0) != (m_speed < 0))
                 speed = 0;
             m_speed = speed;
