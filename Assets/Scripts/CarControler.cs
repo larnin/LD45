@@ -31,6 +31,8 @@ public class CarControler : MonoBehaviour
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
+
+        Event<CameraInstantMoveEvent>.Broadcast(new CameraInstantMoveEvent(new Vector2(transform.position.x, transform.position.z), 0));
     }
     
     void Update()
@@ -73,20 +75,16 @@ public class CarControler : MonoBehaviour
 
         if (accelerate)
         {
-            
-            if (Mathf.Abs(m_speed) < maxSpeed || (m_forwardInput > 0 != m_speed > 0))
-            {
-                float speed = m_speed + m_acceleration / (m_speed + 1) * m_forwardInput * Time.deltaTime;
-                if (speed > m_maxForwardSpeed)
-                    speed = m_maxForwardSpeed;
-                if (speed < -m_maxBackwardSpeed)
-                    speed = -m_maxBackwardSpeed;
-                if (m_moveForward && speed < 0)
-                    speed = 0;
-                if (!m_moveForward && speed > 0)
-                    speed = 0;
-                m_speed = speed;
-            }
+            float speed = m_speed + m_acceleration / (m_speed + 1) * m_forwardInput * Time.deltaTime;
+            if (speed > m_maxForwardSpeed)
+                speed = m_maxForwardSpeed;
+            if (speed < -m_maxBackwardSpeed)
+                speed = -m_maxBackwardSpeed;
+            if (m_moveForward && speed < 0)
+                speed = 0;
+            if (!m_moveForward && speed > 0)
+                speed = 0;
+            m_speed = speed;
         }
         else
         {
@@ -95,7 +93,7 @@ public class CarControler : MonoBehaviour
                 speed = 0;
             m_speed = speed;
         }
-        if (Mathf.Abs(m_speed) > m_maxForwardSpeed)
+        if (Mathf.Abs(m_speed) > maxSpeed)
         {
             float speed = m_speed - Mathf.Sign(m_speed) * m_driftDeceleration * Time.deltaTime * driftPower;
             if ((speed < 0) != (m_speed < 0))
@@ -123,6 +121,7 @@ public class CarControler : MonoBehaviour
 
         Vector3 velocity = new Vector3(Mathf.Cos(m_carDirection), 0, Mathf.Sin(m_carDirection)) * m_speed;
 
+        transform.position = transform.position + velocity * Time.deltaTime;
         m_rigidbody.velocity = velocity;
         m_rigidbody.rotation = Quaternion.Euler(0, -Mathf.Rad2Deg * m_carTargetDirection, 0);
     }
