@@ -26,11 +26,11 @@ public class CarControler : MonoBehaviour
     float m_speed = 0;
     bool m_moveForward = true;
 
-    Rigidbody2D m_rigidbody = null;
+    Rigidbody m_rigidbody = null;
 
     void Start()
     {
-        m_rigidbody = GetComponent<Rigidbody2D>();
+        m_rigidbody = GetComponent<Rigidbody>();
     }
     
     void Update()
@@ -121,12 +121,9 @@ public class CarControler : MonoBehaviour
             m_carDirection += Mathf.Max(deltaAngle, -maxRotAngle);
         else m_carDirection += Mathf.Min(deltaAngle, maxRotAngle);
 
-        Debug.DrawRay(transform.position, 3 * new Vector3(Mathf.Cos(m_carTargetDirection), Mathf.Sin(m_carTargetDirection), 0), Color.blue);
-        Debug.DrawRay(transform.position, 2.5f * new Vector3(Mathf.Cos(m_carDirection), Mathf.Sin(m_carDirection), 0), Color.red);
-
-        Vector2 velocity = new Vector2(Mathf.Cos(m_carDirection), Mathf.Sin(m_carDirection)) * m_speed;
+        Vector3 velocity = new Vector3(Mathf.Cos(m_carDirection), 0, Mathf.Sin(m_carDirection)) * m_speed;
 
         m_rigidbody.velocity = velocity;
-        m_rigidbody.rotation = Mathf.Rad2Deg * m_carTargetDirection;
+        m_rigidbody.rotation = Quaternion.Euler(0, -Mathf.Rad2Deg * m_carTargetDirection, 0);
     }
 }
