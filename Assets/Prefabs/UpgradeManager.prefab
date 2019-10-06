@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2396185755870867522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2396185755870867520}
+  - component: {fileID: 2396185755870867521}
+  m_Layer: 0
+  m_Name: UpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2396185755870867520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2396185755870867522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2396185755870867521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2396185755870867522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c7ea03803a48148b07af6b8fa07ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_upgrades:
+  - m_prefab: {fileID: 9176835692577986287, guid: 1cce103669e0a2c4baa3b373ea25d53b,
+      type: 3}
+    m_forwardSpeed: 1.6
+    m_backwardSpeep: 1
+    m_acceleration: 1
+    m_passiveDeceleration: 0.5
+    m_frontWheelRotation: -0.7853975
+    m_wheelDistance: 0.4
+    m_maxRotSpeedBeforeDrift: 0.1
+    m_driftDeceleration: 1
+    m_driftLostMaxSpeed: 5
+  - m_prefab: {fileID: 3342847060532432726, guid: 05a9a6edf773ee643b1bc471c05a1325,
+      type: 3}
+    m_forwardSpeed: 2.3
+    m_backwardSpeep: 1
+    m_acceleration: 0.7
+    m_passiveDeceleration: 0.75
+    m_frontWheelRotation: -0.7853975
+    m_wheelDistance: 0.5
+    m_maxRotSpeedBeforeDrift: 0.06
+    m_driftDeceleration: 1
+    m_driftLostMaxSpeed: 5
+  - m_prefab: {fileID: 2350975403335378539, guid: 38930b07ab824214da014f936a0f2cdc,
+      type: 3}
+    m_forwardSpeed: 3
+    m_backwardSpeep: 1
+    m_acceleration: 0.8
+    m_passiveDeceleration: 0.75
+    m_frontWheelRotation: -0.7853975
+    m_wheelDistance: 0.5
+    m_maxRotSpeedBeforeDrift: 0.08
+    m_driftDeceleration: 1
+    m_driftLostMaxSpeed: 5
+  - m_prefab: {fileID: 1300159451084603841, guid: 7d62d81b8db1a2a4f820e42c9d6db43a,
+      type: 3}
+    m_forwardSpeed: 3.3
+    m_backwardSpeep: 1
+    m_acceleration: 2
+    m_passiveDeceleration: 1
+    m_frontWheelRotation: -0.7853975
+    m_wheelDistance: 0.6
+    m_maxRotSpeedBeforeDrift: 0.06
+    m_driftDeceleration: 1
+    m_driftLostMaxSpeed: 5
+  - m_prefab: {fileID: 302410392641845152, guid: 7337235ae71ea8b4d9064b1e61c69060,
+      type: 3}
+    m_forwardSpeed: 3.75
+    m_backwardSpeep: 3
+    m_acceleration: 1.5
+    m_passiveDeceleration: 0.75
+    m_frontWheelRotation: -0.7853975
+    m_wheelDistance: 0.75
+    m_maxRotSpeedBeforeDrift: 0.1
+    m_driftDeceleration: 2
+    m_driftLostMaxSpeed: 5
+  - m_prefab: {fileID: 7457120487721186301, guid: 7a62d7789043e55468e2acce925770f0,
+      type: 3}
+    m_forwardSpeed: 5
+    m_backwardSpeep: 2
+    m_acceleration: 3
+    m_passiveDeceleration: 1.5
+    m_frontWheelRotation: -0.7853975
+    m_wheelDistance: 0.6
+    m_maxRotSpeedBeforeDrift: 0.15
+    m_driftDeceleration: 2
+    m_driftLostMaxSpeed: 5
+  - m_prefab: {fileID: 1201663522224327862, guid: e335c3eef9a9a4b478ffa7980bf326b7,
+      type: 3}
+    m_forwardSpeed: 10
+    m_backwardSpeep: 5
+    m_acceleration: 3
+    m_passiveDeceleration: 0.5
+    m_frontWheelRotation: -0.7853975
+    m_wheelDistance: 0.8
+    m_maxRotSpeedBeforeDrift: 0.1
+    m_driftDeceleration: 2
+    m_driftLostMaxSpeed: 5
+  - m_prefab: {fileID: 1475518772890304178, guid: 6819eb01a4845ec4298547839aceb374,
+      type: 3}
+    m_forwardSpeed: 5
+    m_backwardSpeep: 5
+    m_acceleration: 3
+    m_passiveDeceleration: 0.5
+    m_frontWheelRotation: -0.7853975
+    m_wheelDistance: 0.7
+    m_maxRotSpeedBeforeDrift: 0.25
+    m_driftDeceleration: 2
+    m_driftLostMaxSpeed: 3
