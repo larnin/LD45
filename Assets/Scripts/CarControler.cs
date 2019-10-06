@@ -93,7 +93,11 @@ public class CarControler : MonoBehaviour
 
         if (accelerate)
         {
-            float speed = m_speed + m_acceleration / (m_speed + 1) * m_forwardInput * Time.deltaTime;
+            float speed = 0;
+            if((m_forwardInput > 0) == (m_speed >0))
+                speed = m_speed + m_acceleration / (Mathf.Abs(m_speed) + 1) * m_forwardInput * Time.deltaTime;
+            else speed = m_speed + m_acceleration * m_forwardInput * Time.deltaTime;
+
             if (speed > m_maxForwardSpeed)
                 speed = m_maxForwardSpeed;
             if (speed < -m_maxBackwardSpeed)
