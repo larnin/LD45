@@ -8,6 +8,7 @@ public class TargetManager : MonoBehaviour
 {
     [SerializeField] int m_noUseOldCount;
     [SerializeField] GameObject m_targetPrefab;
+    [SerializeField] float m_minTargetDistance = 10;
 
     List<TargetInfo> m_targets = new List<TargetInfo>();
 
@@ -59,11 +60,23 @@ public class TargetManager : MonoBehaviour
 
             if (onList)
                 continue;
+
+            if(m_lastUsedList[0] != -1)
+            {
+                var current = new Vector2(m_targets[m_lastUsedList[0]].transform.position.x, m_targets[m_lastUsedList[0]].transform.position.y);
+                var next = new Vector2(m_targets[m_lastUsedList[0]].transform.position.x, m_targets[m_lastUsedList[0]].transform.position.y);
+
+                if ((current - next).magnitude < m_minTargetDistance)
+                    continue;
+            }
         }
 
-        for (int i = 0; i < m_noUseOldCount - 1; i++)
-            m_lastUsedList[i + 1] = m_lastUsedList[i];
-        m_lastUsedList[0] = index;
+        if (m_noUseOldCount > 0)
+        {
+            for (int i = 0; i < m_noUseOldCount - 1; i++)
+                m_lastUsedList[i + 1] = m_lastUsedList[i];
+            m_lastUsedList[0] = index;
+        }
 
         var obj = Instantiate(m_targetPrefab);
 
