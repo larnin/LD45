@@ -70,6 +70,7 @@ public class CarControler : MonoBehaviour
             if (m_speed == 0)
                 m_moveForward = dir.y > 0;
         }
+        Debug.Log(m_moveForward);
 
         m_rotationInput = dir.x;
         m_forwardInput = dir.y;
