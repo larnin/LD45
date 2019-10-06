@@ -62,7 +62,7 @@ public class Timer : MonoBehaviour
 
         float time = m_timePerUnit * e.distance + m_timePerObjective;
 
-        time = MyMath.powInt(time, m_completedObjectives);
+        time = time * MyMath.powInt(m_timeMultiplierPerObjective, m_completedObjectives);
 
         m_completedObjectives++;
 
