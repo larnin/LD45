@@ -9,6 +9,8 @@ public class CameraFollowZoom : MonoBehaviour
     [SerializeField] float m_moveSpeed = 1;
     [SerializeField] float m_moveSpeedPow = 1;
     [SerializeField] float m_moveMaxSpeed = 100;
+    [SerializeField] float m_rotationSpeed = 1;
+    [SerializeField] float m_rotationSpeedPow = 1;
 
     Camera[] m_cameras;
     Vector2 m_oldTarget;
@@ -97,11 +99,17 @@ public class CameraFollowZoom : MonoBehaviour
         transform.position = transform.position + new Vector3(dir.x, 0, dir.y);
     }
 
-    void UpdateRotation() {
-        transform.rotation = Quaternion.Lerp(transform.rotation,m_followedObject.transform.rotation * Quaternion.Euler(0,90,0),Time.deltaTime * 1);
-        Vector3 vVector = transform.eulerAngles;
-        vVector.x = 90;
-        transform.eulerAngles = vVector;
+    void UpdateRotation()
+    {
+        float rotTarget = m_followedObject.transform.rotation.eulerAngles.y;
+        float rot = transform.rotation.eulerAngles.y - 90;
+
+        float delta = MyMath.SignedDeltaAngle(rot, rotTarget);
+
+        float move = Mathf.Sign(delta) * Mathf.Pow(Mathf.Abs(delta) * m_rotationSpeed, m_rotationSpeedPow);
+        rot += move * Time.deltaTime;
+
+        transform.rotation = Quaternion.Euler(90, rot + 90, 0);
     }
 
     void OnInstantMove(CameraInstantMoveEvent e)
