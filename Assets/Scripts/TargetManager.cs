@@ -6,8 +6,8 @@ using DG.Tweening;
 
 public class TargetManager : MonoBehaviour
 {
-    [SerializeField] int m_noUseOldCount = 2;
-    [SerializeField] GameObject m_targetPrefab = null;
+    [SerializeField] int m_noUseOldCount;
+    [SerializeField] GameObject m_targetPrefab;
 
     List<TargetInfo> m_targets = new List<TargetInfo>();
 
@@ -18,7 +18,6 @@ public class TargetManager : MonoBehaviour
     private void Awake()
     {
         m_subscriberList.Add(new Event<RegisterTargetEvent>.Subscriber(RegisterTarget));
-        m_subscriberList.Add(new Event<GenerateTargetEvent>.Subscriber(GenerateTarget));
         m_subscriberList.Subscribe();
 
         m_lastUsedList = new int[m_noUseOldCount];
@@ -39,11 +38,6 @@ public class TargetManager : MonoBehaviour
     void RegisterTarget(RegisterTargetEvent e)
     {
         m_targets.Add(e.target);
-    }
-    
-    void GenerateTarget(GenerateTargetEvent e)
-    {
-        GenerateTarget(false);
     }
 
     void GenerateTarget(bool firstTime)

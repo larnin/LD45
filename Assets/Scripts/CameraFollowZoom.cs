@@ -53,6 +53,7 @@ public class CameraFollowZoom : MonoBehaviour
 
         UpdateFOV();
         UpdatePosition();
+        UpdateRotation();
     }
 
     void UpdateFOV()
@@ -94,6 +95,13 @@ public class CameraFollowZoom : MonoBehaviour
         dir *= move * Time.deltaTime / distance;
 
         transform.position = transform.position + new Vector3(dir.x, 0, dir.y);
+    }
+
+    void UpdateRotation() {
+        transform.rotation = Quaternion.Lerp(transform.rotation,m_followedObject.transform.rotation * Quaternion.Euler(0,90,0),Time.deltaTime * 1);
+        Vector3 vVector = transform.eulerAngles;
+        vVector.x = 90;
+        transform.eulerAngles = vVector;
     }
 
     void OnInstantMove(CameraInstantMoveEvent e)

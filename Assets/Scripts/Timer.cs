@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     [SerializeField] float m_timePerUnit = 1;
     [SerializeField] float m_timePerObjective = 5;
     [SerializeField] float m_timeMultiplierPerObjective = 0.9f;
-    [SerializeField] Text m_text = null;
+    [SerializeField] Text m_text;
 
     float m_remainingTime = 0;
     int m_completedObjectives = 0;
@@ -62,7 +62,7 @@ public class Timer : MonoBehaviour
 
         float time = m_timePerUnit * e.distance + m_timePerObjective;
 
-        time = time * MyMath.powInt(m_timeMultiplierPerObjective, m_completedObjectives);
+        time = MyMath.powInt(time, m_completedObjectives);
 
         m_completedObjectives++;
 

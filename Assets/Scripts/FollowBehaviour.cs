@@ -61,7 +61,7 @@ public class FollowBehaviour : MonoBehaviour
 
         if(m_updateTargetTimer <= 0)
         {
-            m_updateTargetTimer = 0.25f;
+            m_updateTargetTimer = 1;
 
             m_agent.destination = new Vector3(target.x, 0, target.y);
         }
