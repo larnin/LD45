@@ -12,6 +12,12 @@ public static class MyMath
         return a - Mathf.Floor(a / n) * n;
     }
 
+    public static float SignedDeltaAngleRad(float from, float to)
+    {
+        float a = to - from;
+        return SignedMod((a + Mathf.PI), Mathf.PI * 2) - Mathf.PI;
+    }
+
     public static float SignedDeltaAngle(float from, float to)
     {
         float a = to - from;
