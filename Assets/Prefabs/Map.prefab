@@ -3973,7 +3973,7 @@ GameObject:
   - component: {fileID: 1219204428}
   - component: {fileID: 1219204427}
   - component: {fileID: 1219204426}
-  - component: {fileID: 1219204425}
+  - component: {fileID: 8692064457358114134}
   m_Layer: 0
   m_Name: Building (107)
   m_TagString: Untagged
@@ -4260,7 +4260,7 @@ MonoBehaviour:
   - a: 15
     b: 14
   m_SelectedVertices: 08000000090000000a0000000b00000004000000050000000600000007000000000000000100000002000000030000000c0000000d0000000e0000000f000000
---- !u!65 &1219204425
+--- !u!65 &8692064457358114134
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4271,8 +4271,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 24.49, z: 4}
-  m_Center: {x: -3, y: 2, z: 1}
+  m_Size: {x: 12, y: 20, z: 8}
+  m_Center: {x: -5, y: 3, z: -1}
 --- !u!1 &1315894373
 GameObject:
   m_ObjectHideFlags: 0
