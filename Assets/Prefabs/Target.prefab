@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1844731157}
   - component: {fileID: 1844731156}
   - component: {fileID: 1844731155}
-  - component: {fileID: 1844731158}
   m_Layer: 9
   m_Name: TargetVisual
   m_TagString: Untagged
@@ -101,19 +100,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &1844731158
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1844731154}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.6953127
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1987276470206857372
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,5 +143,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6953127
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
