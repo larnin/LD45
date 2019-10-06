@@ -15,9 +15,9 @@ public class UpgradeManager : MonoBehaviour
         public float m_passiveDeceleration;
         public float m_frontWheelRotation;
         public float m_wheelDistance;
-        float m_maxRotSpeedBeforeDrift;
-        float m_driftDeceleration;
-        float m_driftLostMaxSpeed;
+        public float m_maxRotSpeedBeforeDrift;
+        public float m_driftDeceleration;
+        public float m_driftLostMaxSpeed;
     }
 
     [SerializeField] List<Upgrade> m_upgrades = new List<Upgrade>();
@@ -39,10 +39,11 @@ public class UpgradeManager : MonoBehaviour
 
     void OnUpgradePick(PickUpgradeEvent e)
     {
+        if (m_nCurrentUpgrade >= m_upgrades.Count)
+            return;
+
         Event<BroadcastUpgradeEvent>.Broadcast(new BroadcastUpgradeEvent(m_upgrades[m_nCurrentUpgrade]));
 
         m_nCurrentUpgrade++;
-        if (m_nCurrentUpgrade >= m_upgrades.Count)
-            m_nCurrentUpgrade = m_upgrades.Count - 1;
     }
 }

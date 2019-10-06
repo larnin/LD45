@@ -38,6 +38,8 @@ public class CarControler : MonoBehaviour
     float m_speed = 0;
     bool m_moveForward = true;
 
+    SubscriberList m_subscriberList = new SubscriberList();
+
     Rigidbody m_rigidbody = null;
 
     bool m_drifting = false;
@@ -45,6 +47,14 @@ public class CarControler : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        m_subscriberList.Add(new Event<BroadcastUpgradeEvent>.Subscriber(OnUpgrade));
+        m_subscriberList.Subscribe();
+    }
+
+    private void OnDestroy()
+    {
+        m_subscriberList.Unsubscribe();
     }
 
     void Start()
@@ -159,5 +169,19 @@ public class CarControler : MonoBehaviour
         transform.position = transform.position + velocity * Time.deltaTime;
         m_rigidbody.velocity = velocity;
         m_rigidbody.rotation = Quaternion.Euler(0, -Mathf.Rad2Deg * m_carTargetDirection, 0);
+    }
+
+    void OnUpgrade(BroadcastUpgradeEvent e)
+    {
+        m_maxForwardSpeed = e.upgrade.m_forwardSpeed;
+        m_maxBackwardSpeed = e.upgrade.m_backwardSpeep;
+        m_acceleration = e.upgrade.m_acceleration;
+        m_passiveDeceleration = e.upgrade.m_passiveDeceleration;
+        m_frontWheelRotation = e.upgrade.m_frontWheelRotation;
+        m_wheelDistance = e.upgrade.m_wheelDistance;
+
+        m_maxRotSpeedBeforeDrift = e.upgrade.m_maxRotSpeedBeforeDrift;
+        m_driftDeceleration = e.upgrade.m_driftDeceleration;
+        m_driftLostMaxSpeed = e.upgrade.m_driftLostMaxSpeed;
     }
 }

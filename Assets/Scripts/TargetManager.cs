@@ -60,8 +60,8 @@ public class TargetManager : MonoBehaviour
 
             if (onList)
                 continue;
-
-            if(m_lastUsedList[0] != -1)
+            
+            if(m_noUseOldCount > 0 && m_lastUsedList[0] != -1)
             {
                 var current = new Vector2(m_targets[m_lastUsedList[0]].transform.position.x, m_targets[m_lastUsedList[0]].transform.position.y);
                 var next = new Vector2(m_targets[m_lastUsedList[0]].transform.position.x, m_targets[m_lastUsedList[0]].transform.position.y);
