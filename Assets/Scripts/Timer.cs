@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     [SerializeField] float m_timePerUnit = 1;
     [SerializeField] float m_timePerObjective = 5;
     [SerializeField] float m_timeMultiplierPerObjective = 0.9f;
-    [SerializeField] Text m_text;
+    [SerializeField] Text m_text = null;
 
     float m_remainingTime = 0;
     int m_completedObjectives = 0;

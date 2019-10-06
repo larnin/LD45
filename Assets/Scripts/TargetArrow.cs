@@ -13,6 +13,7 @@ public class TargetArrow : MonoBehaviour
     Vector2 m_target;
 
     RectTransform m_canvasTransform;
+    Camera m_camera;
 
     Graphic[] m_renderers;
 
@@ -26,6 +27,7 @@ public class TargetArrow : MonoBehaviour
             m_canvasTransform = canvas.GetComponent<RectTransform>();
 
         m_renderers = GetComponentsInChildren<Graphic>();
+        m_camera = Camera.main;
     }
 
     private void OnDestroy()
@@ -50,7 +52,10 @@ public class TargetArrow : MonoBehaviour
         bounds.height -= 2 * m_border;
 
         float alpha = (playerPos - m_target).magnitude;
-        var dir = -(playerPos - m_target) / Mathf.Max(0.001f, alpha);
+        var dir = playerPos - m_target;
+        float angle = Mathf.Atan2(dir.y, dir.x);
+        angle += Mathf.Deg2Rad * m_camera.transform.rotation.eulerAngles.y;
+        dir = -new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
 
         if (alpha < m_hideMinDistance)
             alpha = 0;

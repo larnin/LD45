@@ -11665,6 +11665,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
+    - target: {fileID: 1430407823971830074, guid: 7eae23fbca5c3ec40bbabde87b552b7a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1985986816}
     - target: {fileID: 566772597827841434, guid: 7eae23fbca5c3ec40bbabde87b552b7a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11720,11 +11725,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1430407823971830074, guid: 7eae23fbca5c3ec40bbabde87b552b7a,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 1985986816}
     - target: {fileID: 4271013004912983659, guid: 7eae23fbca5c3ec40bbabde87b552b7a,
         type: 3}
       propertyPath: m_Mesh
