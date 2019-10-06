@@ -3,6 +3,18 @@ using System.Collections;
 
 public class CarControler : MonoBehaviour
 {
+    static CarControler m_instance;
+
+    public static CarControler instance
+    {
+        get { return m_instance; }
+        private set
+        {
+            if (m_instance != null)
+                Debug.LogWarning("2 CarControler instanciated");
+            m_instance = value;
+        }
+    }
     string forwardInputName = "Vertical";
     string rotationInputName = "Horizontal";
 
@@ -27,6 +39,11 @@ public class CarControler : MonoBehaviour
     bool m_moveForward = true;
 
     Rigidbody m_rigidbody = null;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
