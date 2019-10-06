@@ -40,6 +40,8 @@ public class CarControler : MonoBehaviour
 
     Rigidbody m_rigidbody = null;
 
+    bool m_drifting = false;
+
     private void Awake()
     {
         instance = this;
@@ -88,6 +90,8 @@ public class CarControler : MonoBehaviour
         bool accelerate = m_forwardInput != 0;
 
         float driftPower = Mathf.Deg2Rad * Mathf.DeltaAngle(Mathf.Rad2Deg * m_carDirection, Mathf.Rad2Deg * m_carTargetDirection);
+
+        m_speed = m_rigidbody.velocity.magnitude * Mathf.Sign(m_speed);
 
         float maxSpeed = (m_speed > 0 ? m_maxForwardSpeed : m_maxBackwardSpeed) * 1 / (1 + m_driftLostMaxSpeed * driftPower);
 
@@ -140,6 +144,16 @@ public class CarControler : MonoBehaviour
         if (deltaAngle < 0)
             m_carDirection += Mathf.Max(deltaAngle, -maxRotAngle);
         else m_carDirection += Mathf.Min(deltaAngle, maxRotAngle);
+
+        if(Mathf.Abs(m_carTargetDirection - m_carDirection) > Mathf.PI * 1.5f)
+        {
+            m_carTargetDirection += Mathf.PI * 2 * Mathf.Sign(m_carDirection - m_carTargetDirection);
+        }
+
+        bool drifting = Mathf.Abs(m_carTargetDirection - m_carDirection) > 0.1f;
+        if (m_drifting != drifting)
+            Event<EnableDriftingEvent>.Broadcast(new EnableDriftingEvent(drifting));
+        m_drifting = drifting;
 
         Vector3 velocity = new Vector3(Mathf.Cos(m_carDirection), 0, Mathf.Sin(m_carDirection)) * m_speed;
 
