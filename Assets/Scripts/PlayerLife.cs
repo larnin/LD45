@@ -46,7 +46,7 @@ public class PlayerLife : Life
         var life = collision.collider.GetComponent<Life>();
         if(life != null)
         {
-            life.Damage(rigidbody.velocity.magnitude * m_damageSpeedHit);
+            //life.Damage(rigidbody.velocity.magnitude * m_damageSpeedHit);
         }
         else
         {
