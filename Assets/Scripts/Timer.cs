@@ -83,4 +83,9 @@ public class Timer : MonoBehaviour
     {
         gameObject.SetActive(e.enable);
     }
+
+    public int GetTargetCount()
+    {
+        return m_completedObjectives;
+    }
 }
