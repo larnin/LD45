@@ -16,6 +16,10 @@ public class GameOverMenuTrigger : MonoBehaviour
         m_subscriberList.Subscribe();
     }
 
+    private void OnDestroy() {
+        m_subscriberList.Unsubscribe();
+    }
+
     private void Timeout(TimeoutEvent e) 
     {
         if(m_gameOverObject == null) 
