@@ -17006,6 +17006,7 @@ GameObject:
   - component: {fileID: 1575262535}
   - component: {fileID: 1575262533}
   - component: {fileID: 1575262536}
+  - component: {fileID: 1575262537}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -17054,14 +17055,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_deadZone: 0.1
-  m_maxForwardSpeed: 5
-  m_maxBackwardSpeed: 5
-  m_acceleration: 3
+  m_maxForwardSpeed: 1.3
+  m_maxBackwardSpeed: 1
+  m_acceleration: 2
   m_passiveDeceleration: 0.5
   m_frontWheelRotation: -0.7853975
-  m_wheelDistance: 0.7
-  m_maxRotSpeedBeforeDrift: 0.25
-  m_driftDeceleration: 1
+  m_wheelDistance: 0.4
+  m_maxRotSpeedBeforeDrift: 0.025
+  m_driftDeceleration: 0.5
   m_driftLostMaxSpeed: 3
 --- !u!54 &1575262535
 Rigidbody:
@@ -17094,6 +17095,21 @@ MonoBehaviour:
   m_upgradeMask:
     serializedVersion: 2
     m_Bits: 1024
+--- !u!114 &1575262537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575262531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5e6c385005c9d4e80225b45b5d9a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_targetLayer:
+    serializedVersion: 2
+    m_Bits: 16896
 --- !u!43 &1602572593
 Mesh:
   m_ObjectHideFlags: 0
