@@ -996,7 +996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_mainMenuName: MainMenu
-  m_gameName: SampleScene
+  m_gameName: Game
   m_scoreAmountText: {fileID: 5600705924736025813}
 --- !u!114 &1199098158788867268
 MonoBehaviour:
