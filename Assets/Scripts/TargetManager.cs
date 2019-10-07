@@ -19,6 +19,7 @@ public class TargetManager : MonoBehaviour
     private void Awake()
     {
         m_subscriberList.Add(new Event<RegisterTargetEvent>.Subscriber(RegisterTarget));
+        m_subscriberList.Add(new Event<GenerateTargetEvent>.Subscriber(GenerateTarget));
         m_subscriberList.Subscribe();
 
         m_lastUsedList = new int[m_noUseOldCount];
@@ -43,6 +44,11 @@ public class TargetManager : MonoBehaviour
 
     public int GetTargetCount() {
         return m_targets.Count;
+    }
+
+    void GenerateTarget(GenerateTargetEvent e)
+    {
+        GenerateTarget(false);
     }
 
     void GenerateTarget(bool firstTime)
