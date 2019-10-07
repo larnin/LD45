@@ -16,10 +16,10 @@ TagManager:
   - PostProcessing
   - Target
   - Upgrade
-  - 
-  - 
-  - 
-  - 
+  - PlayerBullet
+  - EnnemyBullet
+  - Player
+  - Ennemy
   - 
   - 
   - 

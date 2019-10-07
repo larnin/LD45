@@ -18,10 +18,9 @@ public class Turet : MonoBehaviour
     [SerializeField] float m_firPerSec = 2;
     [SerializeField] float m_projectileLife = 1;
     [SerializeField] float m_projectileSpeed = 1;
-
-    [SerializeField] float m_threshold = 0.1f;
-    [SerializeField] float m_cursorSpeed = 1;
-    [SerializeField] float m_cursorMaxDistance = 1;
+    
+    [SerializeField] float m_fireOffset = 1;
+    [SerializeField] int m_nbParticleOnFire = 1;
 
     Vector2 m_cursorPosition = new Vector2(0, 0);
     bool m_controlerWasCentredLastFrame = false;
@@ -37,12 +36,18 @@ public class Turet : MonoBehaviour
 
     Camera m_camera;
 
+    ParticleSystem m_system;
+
     private void Awake()
     {
         m_rigidbody = GetComponentInParent<Rigidbody>();
 
         m_camera = Camera.main;
-    }
+
+        m_system = GetComponentInChildren<ParticleSystem>();
+        if(m_system != null)
+            m_system.Pause();
+    } 
 
     void Update()
     {
@@ -107,7 +112,7 @@ public class Turet : MonoBehaviour
 
         for (int i = 0; i < m_fireCount; i++)
         {
-            float angle = start + m_fireDelta * i;
+            float angle = start + m_fireDelta * i + m_rotation;
 
             var obj = Instantiate(m_projectile);
 
@@ -115,9 +120,20 @@ public class Turet : MonoBehaviour
 
             var dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
 
-            rigidbody.velocity = dir * m_projectileSpeed;
+            if(rigidbody != null)
+                rigidbody.velocity = new Vector3(dir.x, 0, dir.y) * m_projectileSpeed;
+
+            var projectileTransform = obj.transform;
+            
+            var startPos = transform.position + new Vector3(Mathf.Cos(m_rotation), 0, Mathf.Sin(m_rotation)) * m_fireOffset;
+            projectileTransform.position = startPos;
+
+            projectileTransform.rotation = Quaternion.Euler(0, - Mathf.Rad2Deg * angle, 0);
 
             Destroy(obj, m_projectileLife);
         }
+
+        if(m_system != null)
+            m_system.Emit(m_nbParticleOnFire);
     }
 }

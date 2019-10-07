@@ -21,6 +21,8 @@ public class Timer : MonoBehaviour
         m_remainingTime = m_initialTime;
 
         m_subscriberList.Add(new Event<UpdateTargetPositionEvent>.Subscriber(OnNewObjective));
+        m_subscriberList.Add(new Event<AddTimeEvent>.Subscriber(OnAddTime));
+        m_subscriberList.Add(new Event<EnableTimerEvent>.Subscriber(OnEnableTimer));
         m_subscriberList.Subscribe();
     }
 
@@ -62,10 +64,20 @@ public class Timer : MonoBehaviour
 
         float time = m_timePerUnit * e.distance + m_timePerObjective;
 
-        time = MyMath.powInt(time, m_completedObjectives);
+        time = time * MyMath.powInt(m_timeMultiplierPerObjective, m_completedObjectives);
 
         m_completedObjectives++;
 
         m_remainingTime += time;
+    }
+
+    void OnAddTime(AddTimeEvent e)
+    {
+        m_remainingTime += e.time;
+    }
+
+    void OnEnableTimer(EnableTimerEvent e)
+    {
+        gameObject.SetActive(e.enable);
     }
 }

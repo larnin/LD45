@@ -6,8 +6,8 @@ using DG.Tweening;
 
 public class TargetManager : MonoBehaviour
 {
-    [SerializeField] int m_noUseOldCount;
-    [SerializeField] GameObject m_targetPrefab;
+    [SerializeField] int m_noUseOldCount = 1;
+    [SerializeField] GameObject m_targetPrefab = null;
     [SerializeField] float m_minTargetDistance = 10;
 
     List<TargetInfo> m_targets = new List<TargetInfo>();
