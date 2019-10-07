@@ -5,26 +5,21 @@ public class PauseMenuLogic : MonoBehaviour
 {
     [SerializeField] string m_mainMenuName = "MainMenu";
 
-    SubscriberList m_subscriberList = new SubscriberList();
 
     private void Awake()
     {
-        m_subscriberList.Add(new Event<ButtonPressEvent>.Subscriber(OnMenuSelect));
-        m_subscriberList.Subscribe();
-
         Time.timeScale = 0;
     }
 
     private void OnDestroy()
     {
-        m_subscriberList.Unsubscribe();
 
         Time.timeScale = 1;
     }
 
-    void OnMenuSelect(ButtonPressEvent e)
+    public void SelectMenu(int index)
     {
-        switch (e.index)
+        switch (index)
         {
             case 0:
                 Time.timeScale = 1;
