@@ -10901,6 +10901,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 7128593521162203975, guid: 6819eb01a4845ec4298547839aceb374,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6819eb01a4845ec4298547839aceb374, type: 3}
 --- !u!43 &849057983
@@ -13370,7 +13375,7 @@ MonoBehaviour:
   m_timePerUnit: 1
   m_timePerObjective: 5
   m_timeMultiplierPerObjective: 0.9
-  m_text: {fileID: 1148685335}
+  m_text: {fileID: 0}
 --- !u!114 &1148685335
 MonoBehaviour:
   m_ObjectHideFlags: 0

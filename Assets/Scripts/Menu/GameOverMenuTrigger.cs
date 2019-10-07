@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GameOverMenuTrigger : MonoBehaviour
 {
@@ -24,7 +25,10 @@ public class GameOverMenuTrigger : MonoBehaviour
     {
         if(m_gameOverObject == null) 
         {
-            Instantiate(m_gameOverPrefab);
+            DOVirtual.DelayedCall(2, () =>
+            {
+                Instantiate(m_gameOverPrefab);
+            });
         }
     }
 
