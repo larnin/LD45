@@ -48,9 +48,14 @@ public class TargetArrow : MonoBehaviour
         var playerPos = new Vector2(player.transform.position.x, player.transform.position.z);
 
         var bounds = m_canvasTransform.rect;
+
+        var scale = m_canvasTransform.localScale;
+        bounds.width *= scale.x;
+        bounds.height *= scale.y;
+
         bounds.width -= 2 * m_border;
         bounds.height -= 2 * m_border;
-
+        
         float alpha = (playerPos - m_target).magnitude;
         var dir = playerPos - m_target;
         float angle = Mathf.Atan2(dir.y, dir.x);
