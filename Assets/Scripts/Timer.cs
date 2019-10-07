@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Timer : MonoBehaviour
     [SerializeField] float m_timePerUnit = 1;
     [SerializeField] float m_timePerObjective = 5;
     [SerializeField] float m_timeMultiplierPerObjective = 0.9f;
-    [SerializeField] Text m_text = null;
+    [SerializeField] TMP_Text m_text = null;
 
     float m_remainingTime = 0;
     int m_completedObjectives = 0;
@@ -35,16 +36,17 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int sec = Mathf.CeilToInt(m_remainingTime);
+        int sec = Mathf.FloorToInt(m_remainingTime);
+        int ms = Mathf.FloorToInt((m_remainingTime - sec) * 100);
         int min = sec / 60;
         sec %= 60;
 
+       
+
         string text = "";
-        if (min > 0)
-            text += min.ToString() + ":";
-        if (sec < 10)
-            text += "0";
-        text += sec.ToString();
+        text += min.ToString("00") + ":";
+        text += sec.ToString("00") + ":";
+        text += ms.ToString("00");
 
         m_text.text = text;
 
