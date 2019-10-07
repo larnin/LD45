@@ -40,9 +40,7 @@ public class Timer : MonoBehaviour
         int ms = Mathf.FloorToInt((m_remainingTime - sec) * 100);
         int min = sec / 60;
         sec %= 60;
-
-       
-
+        
         string text = "";
         text += min.ToString("00") + ":";
         text += sec.ToString("00") + ":";
@@ -57,6 +55,9 @@ public class Timer : MonoBehaviour
             Event<TimeoutEvent>.Broadcast(new TimeoutEvent());
             m_timeoutFired = true;
         }
+
+        if (m_remainingTime < 0)
+            m_remainingTime = 0;
     }
 
     void OnNewObjective(UpdateTargetPositionEvent e)
