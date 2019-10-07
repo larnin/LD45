@@ -7,8 +7,9 @@ using UnityEngine;
 
 public class PlayerLife : Life
 {
-    [SerializeField] float m_damageMultiplier = 1;
+    [SerializeField] float m_damageTakenMultiplier = 1;
     [SerializeField] GameObject m_explosionOnTimeout = null;
+    [SerializeField] float m_damageSpeedHit = 1;
 
     SubscriberList m_subscriberList = new SubscriberList();
 
@@ -25,7 +26,7 @@ public class PlayerLife : Life
 
     public override void Damage(float value)
     {
-        Event<AddTimeEvent>.Broadcast(new AddTimeEvent(-value * m_damageMultiplier));
+        Event<AddTimeEvent>.Broadcast(new AddTimeEvent(-value * m_damageTakenMultiplier));
     }
 
     void OnTimeout(TimeoutEvent e)
@@ -34,5 +35,22 @@ public class PlayerLife : Life
         obj.transform.position = transform.position;
 
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        var rigidbody = GetComponent<Rigidbody>();
+        if (rigidbody == null)
+            return;
+
+        var life = collision.collider.GetComponent<Life>();
+        if(life != null)
+        {
+            life.Damage(rigidbody.velocity.magnitude * m_damageSpeedHit);
+        }
+        else
+        {
+            //play hit sound
+        }
     }
 }
