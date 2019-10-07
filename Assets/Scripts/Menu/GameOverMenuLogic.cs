@@ -12,7 +12,10 @@ public class GameOverMenuLogic : MonoBehaviour
 
     private void Start() 
     {
-        m_scoreAmountText.text = FindObjectOfType<TargetManager>().GetTargetCount().ToString();
+        if(m_scoreAmountText != null) {
+            m_scoreAmountText.text = FindObjectOfType<TargetManager>().GetTargetCount().ToString();
+        }
+        
     }
 
     public void SelectMenu(int index) {

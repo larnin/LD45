@@ -5,6 +5,10 @@ public class MainMenuLogic : MonoBehaviour
 {
     [SerializeField] string m_sceneName = "";
 
+    private void Awake() {
+        
+    }
+
     public void SelectMenu(int index)
     {
         switch(index)
