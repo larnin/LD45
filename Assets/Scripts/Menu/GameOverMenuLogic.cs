@@ -1,11 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameOverMenuLogic : MonoBehaviour
 {
     [SerializeField] string m_mainMenuName = "MainMenu";
     [SerializeField] string m_gameName = "SampleScene";
+    [Space]
+    [SerializeField] TMP_Text m_scoreAmountText;
+
+    private void Start() 
+    {
+        m_scoreAmountText.text = FindObjectOfType<TargetManager>().GetTargetCount().ToString();
+    }
+
     public void SelectMenu(int index) {
         switch (index) {
             case 0:

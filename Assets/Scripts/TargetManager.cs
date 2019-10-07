@@ -41,6 +41,10 @@ public class TargetManager : MonoBehaviour
         m_targets.Add(e.target);
     }
 
+    public int GetTargetCount() {
+        return m_targets.Count;
+    }
+
     void GenerateTarget(bool firstTime)
     {
         int index = 0;

@@ -621,8 +621,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 405.21246, y: 246.2889}
-  m_SizeDelta: {x: 600, y: 200}
+  m_AnchoredPosition: {x: 12, y: 87}
+  m_SizeDelta: {x: 788.8, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &4828773359069273799
 CanvasRenderer:
@@ -650,7 +650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10522
+  m_text: 15
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b399339b0031da24aa1b987fc704e104, type: 2}
   m_sharedMaterial: {fileID: 350410026538655149, guid: b399339b0031da24aa1b987fc704e104,
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 513
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -717,10 +717,10 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -151.71983, w: 0}
+  m_margin: {x: 0, y: 0, z: -6.166324, w: 0}
   m_textInfo:
     textComponent: {fileID: 5600705924736025813}
-    characterCount: 5
+    characterCount: 2
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -883,6 +883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_mainMenuName: MainMenu
   m_gameName: SampleScene
+  m_scoreAmountText: {fileID: 5600705924736025813}
 --- !u!1 &7459219751985759590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,8 +1074,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200.33995, y: 246.2889}
-  m_SizeDelta: {x: 600, y: 200}
+  m_AnchoredPosition: {x: 0, y: 268.99997}
+  m_SizeDelta: {x: 960, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2510059564880828729
 CanvasRenderer:
@@ -1102,7 +1103,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SCORE:'
+  m_text: 'DELIVERIES:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b399339b0031da24aa1b987fc704e104, type: 2}
   m_sharedMaterial: {fileID: 350410026538655149, guid: b399339b0031da24aa1b987fc704e104,
@@ -1131,14 +1132,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 516
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -1172,7 +1173,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 22403257502893349}
-    characterCount: 6
+    characterCount: 11
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -1208,7 +1209,7 @@ GameObject:
   - component: {fileID: 525279067438098474}
   - component: {fileID: 4138189353795776942}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: ResumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
