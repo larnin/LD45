@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8666899077711562483}
   - component: {fileID: 4530273052894654949}
   - component: {fileID: -2106403196177230312}
+  - component: {fileID: -6608476734319727952}
   m_Layer: 0
   m_Name: Explosion_small
   m_TagString: Untagged
@@ -197,3 +198,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6608476734319727952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3068309822420329346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339e28f828aa5a24e96c44bd458ba7e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_explosionPrefab: {fileID: 0}
+  m_damages: 0
+  m_destroyTime: 0.5
