@@ -8294,15 +8294,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1366222381}
-    - target: {fileID: 664964700, guid: 7eae23fbca5c3ec40bbabde87b552b7a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9061966442149234340, guid: 7eae23fbca5c3ec40bbabde87b552b7a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eae23fbca5c3ec40bbabde87b552b7a, type: 3}
 --- !u!43 &725382016
