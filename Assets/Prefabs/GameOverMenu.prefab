@@ -576,7 +576,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5044254295281298182}
         m_MethodName: SelectMenu
         m_Mode: 3
         m_Arguments:
@@ -756,6 +756,7 @@ GameObject:
   - component: {fileID: 7058019312107479642}
   - component: {fileID: 7058019312107479643}
   - component: {fileID: 6193498066956121511}
+  - component: {fileID: 5044254295281298182}
   m_Layer: 5
   m_Name: GameOverMenu
   m_TagString: Untagged
@@ -868,6 +869,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5044254295281298182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7058019312107479644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0258e2b3ec4cb244cb04ab483593b1c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_mainMenuName: MainMenu
+  m_gameName: SampleScene
 --- !u!1 &7459219751985759590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,7 +1208,7 @@ GameObject:
   - component: {fileID: 525279067438098474}
   - component: {fileID: 4138189353795776942}
   m_Layer: 5
-  m_Name: ResumeButton
+  m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1283,7 +1298,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: e0ed0b9b41812c546a2245c610ee02b1,
+      type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 30555f768a741ac43a1f3b6e03df8f3d, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -1298,7 +1314,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5044254295281298182}
         m_MethodName: SelectMenu
         m_Mode: 3
         m_Arguments:
